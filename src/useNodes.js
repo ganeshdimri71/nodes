@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
 const useNodes = () => {
-	let count = [1, 2, 3];
-	console.log("I am useNodes count : ", count);
-    
-	return count;
+    const [increment, setIncrement] = useState(0);
+		function incrementState() {
+            setIncrement( ( prevState ) => prevState + 1 );
+            return increment;
+		}
+		return incrementState;
 };
 
 export default useNodes;

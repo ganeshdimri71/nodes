@@ -26,7 +26,12 @@ function Nodes() {
 		console.log("I am mounted...!");
 	}, []);
 
-	const handleClickOnStage = (e) => {
+    const count = useNodes();
+	console.log("count = ", count);
+
+    const handleClickOnStage = ( e ) => {
+        var a = count();
+        console.log('The value of the variable a is : *********************************************************************************************************************************************************************', a)
 		console.log(
 			"The value of this component count is inside handleclickonstage is : "
 			
@@ -80,7 +85,7 @@ function Nodes() {
 									<Text
 										x={line[0] - 20}
 										y={line[1] - 20}
-										text={`${text}`}
+										text={`${text}${a}`}
 										fill="grey"
 									/>
 									<Circle
