@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useNodes from "./useNodes";
 
 import {
@@ -18,7 +18,8 @@ function Nodes() {
 	const [lines, setLines] = useState([]);
 	const [draw, setDraw] = useState(false);
 	const [text, setText] = useState("a");
-	const [number, setNumber] = useState([1, 2, 3]);
+	const [ number, setNumber ] = useState( [ 1, 2, 3 ] );
+	const [countOne, setcountOne] = useState(0)
 	console.log("The value of this component count is : ");
 
 	useEffect(() => {
@@ -29,8 +30,10 @@ function Nodes() {
     const count = useNodes();
 	console.log("count = ", count);
 
-    const handleClickOnStage = ( e ) => {
-        var a = count();
+	const handleClickOnStage = ( e ) => {
+		
+		var a = count();
+		setcountOne(a)
         console.log('The value of the variable a is : *********************************************************************************************************************************************************************', a)
 		console.log(
 			"The value of this component count is inside handleclickonstage is : "
@@ -85,7 +88,7 @@ function Nodes() {
 									<Text
 										x={line[0] - 20}
 										y={line[1] - 20}
-										text={`${text}${a}`}
+										text={`${text}${countOne}`}
 										fill="grey"
 									/>
 									<Circle

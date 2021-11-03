@@ -2,12 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import Points from "./Points";
 import Nodes from "./Nodes";
+import Nodes1 from "./Nodes1";
 
 function App() {
 	return (
 		<div className="App">
 			{/* <Points /> */}
-			<Nodes />
+			{/* <Nodes1 /> */}
+			<Nodes1 />
 		</div>
 	);
 }
