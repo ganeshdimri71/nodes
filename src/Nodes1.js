@@ -34,43 +34,7 @@ function Nodes1() {
 		console.log("The value of the nodes is : ", nodes);
 	};
 
-	// const keyPressEventHandler = (e) => {
-	// 	console.log("The value of the Nodes is : ", nodes);
-	// 	var KEYCODE_ESC = 27;
-	// 	const arr = [
-	// 		"a",
-	// 		"b",
-	// 		"c",
-	// 		"d",
-	// 		"e",
-	// 		"f",
-	// 		"g",
-	// 		"h",
-	// 		"i",
-	// 		"j",
-	// 		"k",
-	// 		"l",
-	// 		"m",
-	// 		"n",
-	// 		"o",
-	// 		"p",
-	// 		"q",
-	// 		"r",
-	// 		"s",
-	// 		"t",
-	// 		"u",
-	// 		"v",
-	// 		"w",
-	// 		"y",
-	// 		"z",
-	// 	];
-	// 	if (e.keyCode === KEYCODE_ESC) {
-	// 		setCurrentKeyValue((prevState) => prevState + 1);
-	// 		console.log("The value of the currentKeyValue is : ", currentKeyValue);
-	// 		let index = arr.indexOf(currentKey);
-	// 		setCurrentKey(arr[currentKeyValue + 1]);
-	// 	}
-	// };
+	
 
 	const handleIncrement = () => {
 		console.log("The value of the nodes is : ", nodes);
@@ -101,18 +65,16 @@ function Nodes1() {
 			"y",
 			"z",
 		];
-		const arr1 = [];
-		setCurrentKeyValue(currentKeyValue + 1);
-		setCurrentKey(arr[currentKeyValue + 1]);
-		setCurrentKeyValueOne([]);
+		if (currentKeyValue < 25) {
+			setCurrentKeyValue(currentKeyValue + 1);
+			setCurrentKey(arr[currentKeyValue + 1]);
+			setCurrentKeyValueOne([]);
+		} else {
+			setCurrentKeyValue(0);
+		}
 	};
 
-	// useEffect(() => {
-	// 	window.addEventListener("keydown", keyPressEventHandler);
-	// 	console.log("I am mounted...!");
-
-	// 	return () => window.removeEventListener("keydown", keyPressEventHandler);
-	// }, []);
+	
 
 	return (
 		<>
