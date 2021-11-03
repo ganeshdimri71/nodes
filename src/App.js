@@ -10,8 +10,8 @@ function App() {
 		<div className="App">
 			{/* <Points /> */}
 			{/* <Nodes1 /> */}
-			{/* <Nodes1 /> */}
-			<ClassNodes1 />
+			<Nodes1 />
+			{/* <ClassNodes1 /> */}
 		</div>
 	);
 }
