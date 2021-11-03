@@ -16,7 +16,7 @@ import {
 function ClassNodes1() {
 	const [nodes, setNodes] = useState([]);
 	const [currentKey, setCurrentKey] = useState("a");
-	const [currentKeyValue, setCurrentKeyValue] = useState(0);
+	const [currentKeyValue, setCurrentKeyValue] = useState([]);
 	const [currentKeyValueOne, setCurrentKeyValueOne] = useState([]);
 	const handleClickOnStage = (e) => {
 		let pos = e.target.getStage().getPointerPosition();
@@ -37,6 +37,9 @@ function ClassNodes1() {
 	const keyPressEventHandler = (e) => {
 		var KEYCODE_ESC = 27;
 		if (e.keyCode === KEYCODE_ESC) {
+			let temp = currentKeyValue;
+			temp.push(1);
+			setCurrentKeyValue(temp);
 			console.log("The value of the nodes is : ", nodes);
 			const arr = [
 				"a",
@@ -65,8 +68,7 @@ function ClassNodes1() {
 				"y",
 				"z",
 			];
-			setCurrentKeyValue(prevState=>prevState+1);
-			setCurrentKey(arr[currentKeyValue + 1]);
+			setCurrentKey(arr[currentKeyValue.length]);
 			setCurrentKeyValueOne([]);
 		}
 	};
