@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import shortid from "shortid";
 
 import {
 	Group,
@@ -17,7 +18,8 @@ function ClassNodes1() {
 	const [nodes, setNodes] = useState([]);
 	const [currentKey, setCurrentKey] = useState("a");
 	const [currentKeyValue, setCurrentKeyValue] = useState([]);
-	const [currentKeyValueOne, setCurrentKeyValueOne] = useState([]);
+	const [currentKeyValueOne, setCurrentKeyValueOne] = useState([1]);
+
 	const handleClickOnStage = (e) => {
 		let pos = e.target.getStage().getPointerPosition();
 		setNodes([
@@ -27,50 +29,67 @@ function ClassNodes1() {
 		let temp = currentKeyValueOne;
 		temp.push(1);
 		setCurrentKeyValueOne(temp);
-		console.log(
-			"The value of the currentKeyValueOne is : ",
-			currentKeyValueOne
-		);
-		console.log("The value of the nodes is : ", nodes);
 	};
 
 	const keyPressEventHandler = (e) => {
-		var KEYCODE_ESC = 27;
-		if (e.keyCode === KEYCODE_ESC) {
+		console.log(
+			"The value of the length of the current key value is : ",
+			currentKeyValue.length
+		);
+		console.log("Hi I am key Press");
+		console.log("The value of the nodes is : ", nodes);
+		const arr = [
+			"a",
+			"b",
+			"c",
+			"d",
+			"e",
+			"f",
+			"g",
+			"h",
+			"i",
+			"j",
+			"k",
+			"l",
+			"m",
+			"n",
+			"o",
+			"p",
+			"q",
+			"r",
+			"s",
+			"t",
+			"u",
+			"v",
+			"w",
+			"x",
+			"y",
+			"z",
+		];
+		if (currentKeyValue.length <= 25) {
+			console.log("Hi I am also key Press");
 			let temp = currentKeyValue;
-			temp.push(1);
+
 			setCurrentKeyValue(temp);
-			console.log("The value of the nodes is : ", nodes);
-			const arr = [
-				"a",
-				"b",
-				"c",
-				"d",
-				"e",
-				"f",
-				"g",
-				"h",
-				"i",
-				"j",
-				"k",
-				"l",
-				"m",
-				"n",
-				"o",
-				"p",
-				"q",
-				"r",
-				"s",
-				"t",
-				"u",
-				"v",
-				"w",
-				"y",
-				"z",
-			];
 			setCurrentKey(arr[currentKeyValue.length]);
-			setCurrentKeyValueOne([]);
+			temp.push(1);
+			setCurrentKeyValueOne([1]);
+		} else {
+			let temp = currentKeyValue;
+			temp.splice(0, temp.length);
+			setCurrentKeyValue(temp);
 		}
+		// var KEYCODE_ESC = 27;
+		// if (e.keyCode === KEYCODE_ESC ) {
+		// 	let temp = currentKeyValue;
+		// 	temp.push(1);
+		// 	setCurrentKeyValue(temp);
+
+		// 	setCurrentKey(arr[currentKeyValue.length]);
+		// 	setCurrentKeyValueOne([1]);
+		// } else {
+		// 	setCurrentKeyValue(-1);
+		// }
 	};
 
 	useEffect(() => {
@@ -95,17 +114,26 @@ function ClassNodes1() {
 							return (
 								<>
 									<Text
-										key={new Date().getTime()}
-										x={node[0] - 20}
-										y={node[1] - 20}
+										key={new Date().getMilliseconds()}
+										x={node[0] - 9}
+										y={node[1] - 23}
 										text={node[2]}
 										fill="grey"
 									/>
 									<Circle
+										key={`${node[1]}`}
 										x={node[0]}
 										y={node[1]}
 										fill="black"
 										radius={10}
+										shadowBlur={5}
+									/>
+									<Circle
+										key={`${node[2]}`}
+										x={node[0]}
+										y={node[1]}
+										fill="white"
+										radius={5}
 										shadowBlur={5}
 									/>
 								</>

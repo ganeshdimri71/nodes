@@ -17,7 +17,7 @@ function Nodes1() {
 	const [nodes, setNodes] = useState([]);
 	const [currentKey, setCurrentKey] = useState("a");
 	const [currentKeyValue, setCurrentKeyValue] = useState(0);
-	const [currentKeyValueOne, setCurrentKeyValueOne] = useState([]);
+	const [currentKeyValueOne, setCurrentKeyValueOne] = useState([1]);
 	const handleClickOnStage = (e) => {
 		let pos = e.target.getStage().getPointerPosition();
 		setNodes([
@@ -27,14 +27,7 @@ function Nodes1() {
 		let temp = currentKeyValueOne;
 		temp.push(1);
 		setCurrentKeyValueOne(temp);
-		console.log(
-			"The value of the currentKeyValueOne is : ",
-			currentKeyValueOne
-		);
-		console.log("The value of the nodes is : ", nodes);
 	};
-
-	
 
 	const handleIncrement = () => {
 		console.log("The value of the nodes is : ", nodes);
@@ -62,15 +55,16 @@ function Nodes1() {
 			"u",
 			"v",
 			"w",
+			"x",
 			"y",
 			"z",
 		];
 		if (currentKeyValue < 25) {
 			setCurrentKeyValue(currentKeyValue + 1);
 			setCurrentKey(arr[currentKeyValue + 1]);
-			setCurrentKeyValueOne([]);
+			setCurrentKeyValueOne([1]);
 		} else {
-			setCurrentKeyValue(0);
+			setCurrentKeyValue(-1);
 		}
 	};
 
