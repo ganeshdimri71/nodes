@@ -17,7 +17,7 @@ import {
 function ClassNodes1() {
 	const [nodes, setNodes] = useState([]);
 	const [currentKey, setCurrentKey] = useState("a");
-	const [currentKeyValue, setCurrentKeyValue] = useState([]);
+	const [currentKeyValue, setCurrentKeyValue] = useState([1]);
 	const [currentKeyValueOne, setCurrentKeyValueOne] = useState([1]);
 
 	const handleClickOnStage = (e) => {
